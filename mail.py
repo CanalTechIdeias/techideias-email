@@ -13,11 +13,11 @@ load_dotenv()
 @dataclass
 class TechIdeiasMail:
     sender_email: str
-    password: str
+    app_password: str
 
-    def login(self, email_address, email_password):
+    def login(self, email_address, email_app_password):
         self.sender_email = email_address
-        self.password = email_password
+        self.app_password = email_app_password
 
     def send_email(self, subject, body, to_email):
         # Create the email message
@@ -36,7 +36,7 @@ class TechIdeiasMail:
             # Connect to the mail server using TLS encryption
             with smtplib.SMTP('smtp.gmail.com', 587) as server:
                 server.starttls(context=context)
-                server.login(self.sender_email, self.password)
+                server.login(self.sender_email, self.app_password)
                 text = msg.as_string()
                 server.sendmail(self.sender_email, to_email, text)
             
@@ -60,7 +60,7 @@ class TechIdeiasMail:
             # Connect to the mail server and send the email
             with smtplib.SMTP('smtp.gmail.com', 587) as server:
                 server.starttls(context=context)
-                server.login(self.sender_email, self.password)
+                server.login(self.sender_email, self.app_password)
                 text = msg.as_string()
                 server.sendmail(self.sender_email, to_email, text)
             
@@ -95,7 +95,7 @@ class TechIdeiasMail:
             # Connect to the mail server and send the email
             with smtplib.SMTP('smtp.gmail.com', 587) as server:
                 server.starttls(context=context)
-                server.login(self.sender_email, self.password)
+                server.login(self.sender_email, self.app_password)
                 text = msg.as_string()
                 server.sendmail(self.sender_email, to_email, text)
             
