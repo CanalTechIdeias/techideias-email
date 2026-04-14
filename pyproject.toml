@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "nicegui>=3.3.1",
     "python-dotenv>=1.2.1",
+    "rich>=15.0.0",
     "secure-smtplib>=0.1.1",
 ]
